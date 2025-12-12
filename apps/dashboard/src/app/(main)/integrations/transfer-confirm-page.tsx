@@ -99,7 +99,7 @@ export default function IntegrationProjectTransferConfirmPageClient(props: { typ
                 Which Stack Auth account would you like to transfer the project to? (You&apos;ll still be able to access your project from {props.type === "neon" ? "Neon" : "the third party"}&apos;s dashboard.)
               </Typography>
               <Input type="text" disabled prefixItem={<Logo noLink width={15} height={15} />} value={`Signed in as ${user.primaryEmail || user.displayName || "Unnamed user"}`} />
-              <Button variant="secondary" onClick={async () => await user.signOut({ redirectUrl: signUpUrl })}>
+              <Button variant="secondary" onClick={() => user.signOut({ redirectUrl: signUpUrl })}>
                 Switch account
               </Button>
             </>

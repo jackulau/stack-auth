@@ -169,7 +169,7 @@ async function loadDailyActiveUsers(tenancy: Tenancy, now: Date, includeAnonymou
 async function loadLoginMethods(tenancy: Tenancy): Promise<{ method: string, count: number }[]> {
   const schema = await getPrismaSchemaForTenancy(tenancy);
   const prisma = await getPrismaClientForTenancy(tenancy);
-  return await prisma.$queryRaw<{ method: string, count: number }[]>`
+  return prisma.$queryRaw<{ method: string, count: number }[]>`
     WITH tab AS (
       SELECT
         COALESCE(

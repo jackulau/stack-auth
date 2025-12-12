@@ -153,7 +153,7 @@ export const teamsCrudHandlers = createLazyProxy(() => createCrudHandlers(teamsC
 
       await ensureTeamExists(tx, { tenancyId: auth.tenancy.id, teamId: params.team_id });
 
-      return await tx.team.update({
+      return tx.team.update({
         where: {
           tenancyId_teamId: {
             tenancyId: auth.tenancy.id,

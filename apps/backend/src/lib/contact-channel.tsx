@@ -23,7 +23,7 @@ async function getAuthContactChannel(
     value: string,
   }
 ) {
-  return await tx.contactChannel.findUnique({
+  return tx.contactChannel.findUnique({
     where: {
       tenancyId_type_value_usedForAuth: {
         tenancyId: options.tenancyId,

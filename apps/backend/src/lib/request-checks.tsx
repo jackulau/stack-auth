@@ -15,7 +15,7 @@ async function _getTeamMembership(
     teamId: string, userId: string,
   }
 ) {
-  return await tx.teamMember.findUnique({
+  return tx.teamMember.findUnique({
     where: {
       tenancyId_projectUserId_teamId: {
         tenancyId: options.tenancyId,

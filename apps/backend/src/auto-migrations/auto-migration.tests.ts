@@ -299,7 +299,7 @@ import.meta.vitest?.test("applies migration while running concurrent queries", r
 
 import.meta.vitest?.test("applies migration while running an interactive transaction", runTest(async ({ expect, prismaClient, dbURL }) => {
   // eslint-disable-next-line no-restricted-syntax
-  return await prismaClient.$transaction(async (tx, ...args) => {
+  return prismaClient.$transaction(async (tx, ...args) => {
     await runMigrationNeeded({
       prismaClient,
       migrationFiles: exampleMigrationFiles1,
@@ -321,7 +321,7 @@ import.meta.vitest?.test("applies migration while running an interactive transac
 import.meta.vitest?.test("applies migration while running concurrent interactive transactions", runTest(async ({ expect, prismaClient, dbURL }) => {
   const runTransactionWithMigration = async (testValue: string) => {
     // eslint-disable-next-line no-restricted-syntax
-    return await prismaClient.$transaction(async (tx) => {
+    return prismaClient.$transaction(async (tx) => {
       await runMigrationNeeded({
         prismaClient,
         schema: 'public',

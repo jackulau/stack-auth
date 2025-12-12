@@ -209,7 +209,7 @@ export const contactChannelsCrudHandlers = createLazyProxy(() => createCrudHandl
         });
       }
 
-      return await tx.contactChannel.update({
+      return tx.contactChannel.update({
         where: {
           tenancyId_projectUserId_id: {
             tenancyId: auth.tenancy.id,

@@ -53,7 +53,7 @@ export const adminUserProjectsCrudHandlers = createLazyProxy(() => createCrudHan
   onList: async ({ auth }) => {
     const projectIds = await listManagedProjectIds(auth.user ?? throwErr('auth.user is required'));
     const projectsRecord = await rawQueryAll(globalPrismaClient, typedFromEntries(projectIds.map((id, index) => [index, getProjectQuery(id)])));
-    const projects = (await Promise.all(typedEntries(projectsRecord).map(async ([_, project]) => await project))).filter(isNotNull);
+    const projects = (await Promise.all(typedEntries(projectsRecord).map(([_, project]) => project))).filter(isNotNull);
 
     if (projects.length !== projectIds.length) {
       throw new StackAssertionError('Failed to fetch all projects of a user');

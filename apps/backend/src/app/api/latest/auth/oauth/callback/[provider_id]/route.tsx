@@ -27,7 +27,7 @@ async function createProjectUserOAuthAccount(prisma: PrismaClient, params: {
   email?: string | null,
   projectUserId: string,
 }) {
-  return await prisma.projectUserOAuthAccount.create({
+  return prisma.projectUserOAuthAccount.create({
     data: {
       configOAuthProviderId: params.providerId,
       providerAccountId: params.providerAccountId,
