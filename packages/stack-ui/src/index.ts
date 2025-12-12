@@ -1,9 +1,9 @@
 export * from "./components/action-dialog";
 export * as BrandIcons from "./components/brand-icons";
-export * from "./components/browser-frame";
+export * from "./components/browser-frame/index";
 export * from "./components/copy-button";
 export * from "./components/copy-field";
-export * from "./components/data-table";
+export * from "./components/data-table/index";
 export * from "./components/simple-tooltip";
 export * from "./components/ui/accordion";
 export * from "./components/ui/alert";
